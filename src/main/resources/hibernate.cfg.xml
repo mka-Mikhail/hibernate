@@ -15,6 +15,7 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="current_session_context_class">thread</property>
 
-        <mapping class="org.mka.Product"/>
+        <mapping class="org.mka.models.Product"/>
+        <mapping class="org.mka.models.Buyer"/>
     </session-factory>
 </hibernate-configuration>

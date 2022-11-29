@@ -1,6 +1,8 @@
-package org.mka;
+package org.mka.models;
 
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -18,6 +20,13 @@ public class Product {
     private String title;
     @Column(name = "cost")
     private int cost;
+    @ManyToMany
+    @JoinTable(
+            name = "orders",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "buyer_id")
+    )
+    private List<Buyer> buyers;
 
     public Product() {
     }
@@ -41,6 +50,10 @@ public class Product {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public List<Buyer> getBuyers() {
+        return buyers;
     }
 
     @Override
